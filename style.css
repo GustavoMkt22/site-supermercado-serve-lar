@@ -941,6 +941,47 @@ img, iframe, video { max-width:100%; height:auto; display:block; }
   }
   .badge, .hero p{ max-width: 100%; }
 }
+/* ===== Serviços no MOBILE: 1 por linha + texto justificado ===== */
+@media (max-width: 720px){
+  /* grade vira uma coluna */
+  #servicos .cards{
+    display: grid;
+    grid-template-columns: 1fr;   /* uma embaixo da outra */
+    gap: 14px;
+  }
+
+  /* cartão preenche a largura e tem respiro interno */
+  #servicos .card{
+    width: 100%;
+    padding: 18px 14px;
+    border-radius: 14px;
+    text-align: justify;          /* justifica por padrão */
+    display: flex;
+    flex-direction: column;
+    min-height: unset;            /* evita alturas forçadas */
+  }
+
+  /* título legível e sem quebra feia */
+  #servicos .card h3{
+    text-align: left;
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+    line-height: 1.25;
+    word-break: break-word;
+    text-wrap: balance;
+  }
+
+  /* parágrafos justificados e sem corte de palavras */
+  #servicos .card p{
+    margin: 0;
+    font-size: .95rem;
+    line-height: 1.55;
+    text-align: justify;
+    hyphens: auto;                /* hifeniza quando possível */
+    overflow-wrap: anywhere;      /* quebra palavras longas */
+  }
+}
+
 
 
 
