@@ -1089,6 +1089,36 @@ html, body {
     align-items: center;
   }
 }
+/* ===== HERO FULL WIDTH (ocupa toda a tela no mobile e desktop) ===== */
+.hero {
+  position: relative;
+  color: var(--white);
+  overflow: hidden;
+}
+
+/* O fundo é um pseudo-elemento que cobre 100vw — “sangra” até as bordas */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;              /* ocupa toda a largura da viewport */
+  height: 100%;
+  background:
+    radial-gradient(1200px 400px at 10% -10%, rgba(255,199,39,.35), transparent 60%),
+    linear-gradient(90deg, var(--red-700) 0%, var(--red-800) 60%, #7e0f12 100%);
+  z-index: -1;
+}
+
+/* Garante que o conteúdo do hero continue centralizado */
+.hero .wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-inline: 16px;
+}
+
 
 
 
