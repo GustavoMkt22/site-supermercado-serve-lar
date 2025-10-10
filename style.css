@@ -893,5 +893,54 @@ img, iframe, video { max-width:100%; height:auto; display:block; }
     text-align: justify;
   }
 }
+/* ===== Full-bleed no mobile: HERO e STRIP ocupam 100% da tela ===== */
+@media (max-width: 720px){
+  /* Faz o fundo do hero ir de borda a borda */
+  .hero{
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    width: 100vw;                /* largura exata da viewport */
+    border-radius: 0;            /* evita “corte” nos cantos */
+    overflow-x: clip;            /* sem scroll lateral */
+    position: relative;
+    z-index: 1;                  /* fica acima da strip */
+    padding: 40px 0 28px;        /* respiro interno */
+  }
+
+  /* Mantém o conteúdo do hero com respiro */
+  .hero .wrap{ padding-inline:16px; }
+
+  /* Full-bleed também na faixa amarela */
+  .strip{
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    width: 100vw;
+    border-left: 0;
+    border-right: 0;
+    position: relative;
+    z-index: 0;
+    overflow-x: clip;
+  }
+
+  /* Evita que o conteúdo interno force mais que a tela */
+  .strip .marquee{
+    padding-inline:16px;
+    overflow-x:auto;                    /* rolagem só dentro da faixa */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .strip .marquee::-webkit-scrollbar{ display:none; }
+
+  /* Garantias extras do título e do badge para não “passarem” da tela */
+  .hero h2{
+    font-size: clamp(2rem, 8.6vw, 3rem);
+    line-height: 1.05;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    max-width: 100%;
+  }
+  .badge, .hero p{ max-width: 100%; }
+}
+
 
 
