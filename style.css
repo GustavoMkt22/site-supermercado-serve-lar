@@ -786,3 +786,39 @@ img, iframe, video { max-width:100%; height:auto; display:block; }
   width:auto;
   line-height:1;
 }
+/* ===== HERO: impedir corte no mobile ===== */
+@media (max-width: 720px){
+  /* o hero não pode recortar nada */
+  .hero{ 
+    overflow: visible;             /* libera o conteúdo */
+    padding: 40px 0 28px;          /* respiro padrão */
+  }
+
+  /* garante largura total e respiro lateral dentro do hero */
+  .hero .wrap{
+    width: 100%;
+    padding-inline: 16px;          /* 16px de cada lado */
+  }
+
+  /* grade em 1 coluna e sem corte lateral */
+  .hero-grid{
+    grid-template-columns: 1fr;
+    gap: 18px;
+    overflow: visible;
+  }
+
+  /* título grande sem estourar a largura */
+  .hero h2{
+    max-width: 100%;
+    font-size: clamp(2rem, 8.6vw, 3rem);  /* escala fluida */
+    line-height: 1.05;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    margin-right: 0;                       /* evita “encostar” */
+  }
+
+  /* badge e textos nunca passam da tela */
+  .badge{ max-width: 100%; }
+  .hero p{ max-width: 100%; }
+}
+
