@@ -981,6 +981,24 @@ img, iframe, video { max-width:100%; height:auto; display:block; }
     overflow-wrap: anywhere;      /* quebra palavras longas */
   }
 }
+/* ===== Neutraliza o patch do S23 Ultra ===== */
+html, body {
+  overflow-x: visible !important;
+  width: auto !important;
+}
+
+.wrap {
+  max-width: none !important;
+  padding-inline: 0 !important;
+}
+
+.hero, .strip, header, footer, section {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  overflow-x: visible !important;
+}
+
 
 
 
