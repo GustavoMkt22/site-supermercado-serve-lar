@@ -2,8 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>  Supermercado Serve Lar — Servindo Melhor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Supermercado Serve Lar — Servindo Melhor</title>
   <meta name="description" content="Supermercado Serve Lar — ofertas fresquinhas, atendimento de qualidade e os melhores preços da cidade.">
   <meta name="theme-color" content="#C41E1E"/>
 
@@ -15,10 +15,12 @@
 </head>
 <body>
 
+  <!-- TOPO -->
   <div class="topbar">
     <span><strong>Horário:</strong> Seg–Sáb 7h–21h • Dom 8h–14h</span>
   </div>
 
+  <!-- CABEÇALHO -->
   <header>
     <div class="wrap row">
       <a class="brand" href="#inicio">
@@ -36,12 +38,13 @@
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="#tricard">Cartão Tricard</a></li>
           <li><a href="#localizacao">Localização</a></li>
-          <li><a class="cta-header" href="tel:+5563999990000">Ligar: (63) 99999-0000</a></li>
+          <li><a class="cta-header" href="tel:+556333611654">Ligar: (63) 3361-1654</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero" id="inicio">
     <div class="wrap hero-grid">
       <div>
@@ -55,44 +58,38 @@
       </div>
 
       <aside class="hero-card">
-  <h3>Hoje tem:</h3>
+        <h3>Hoje tem:</h3>
 
-  <div class="carousel" id="todayCarousel" aria-label="Carrossel de ofertas do dia">
-    <div class="slides">
-      <!-- Slide 1 -->
-      <div class="slide">
-        <div class="tag">Hortifruti</div>
-        <p>Banana, Maçã, Tomate e muito mais com preço de feira!</p>
-      </div>
-      <!-- Slide 2 -->
-      <div class="slide">
-        <div class="tag">Açougue</div>
-        <p>Cortes selecionados e moída na hora.</p>
-      </div>
-      <!-- Slide 3 -->
-      <div class="slide">
-        <div class="tag">Padaria</div>
-        <p>Pães quentinhos e bolos caseiros ao longo do dia.</p>
-      </div>
-      <!-- Slide 4 -->
-      <div class="slide">
-        <div class="tag">Bebidas</div>
-        <p>As melhores marcas sempre geladas.</p>
-      </div>
-    </div>
+        <div class="carousel" id="todayCarousel" aria-label="Carrossel de ofertas do dia">
+          <div class="slides">
+            <div class="slide">
+              <div class="tag">Hortifruti</div>
+              <p>Banana, Maçã, Tomate e muito mais com preço de feira!</p>
+            </div>
+            <div class="slide">
+              <div class="tag">Açougue</div>
+              <p>Cortes selecionados e moída na hora.</p>
+            </div>
+            <div class="slide">
+              <div class="tag">Padaria</div>
+              <p>Pães quentinhos e bolos caseiros ao longo do dia.</p>
+            </div>
+            <div class="slide">
+              <div class="tag">Bebidas</div>
+              <p>As melhores marcas sempre geladas.</p>
+            </div>
+          </div>
 
-    <!-- Controles -->
-    <button class="nav prev" aria-label="Anterior">‹</button>
-    <button class="nav next" aria-label="Próximo">›</button>
-
-    <!-- Paginação -->
-    <div class="dots" aria-hidden="true"></div>
-  </div>
-</aside>
-
+          <!-- Controles -->
+          <button class="nav prev" aria-label="Anterior">‹</button>
+          <button class="nav next" aria-label="Próximo">›</button>
+          <div class="dots" aria-hidden="true"></div>
+        </div>
+      </aside>
     </div>
   </section>
 
+  <!-- FAIXA -->
   <div class="strip">
     <div class="wrap marquee">
       <div>🛒 Clientes do Clube Serve Lar têm descontos exclusivos!</div>
@@ -101,65 +98,88 @@
     </div>
   </div>
 
-  <section <section id="ofertas">
-  <div class="wrap">
-    <h2 class="section-title">Ofertas em destaque</h2>
-    <p class="lead">Alguns exemplos do que você encontra hoje em nossas gôndolas:</p>
+  <!-- OFERTAS -->
+  <section id="ofertas">
+    <div class="wrap">
+      <h2 class="section-title">Ofertas em destaque</h2>
+      <p class="lead">Alguns exemplos do que você encontra hoje em nossas gôndolas:</p>
 
-    <!-- CONTÊINER ÚNICO DA GRADE -->
-    <div class="cards">
-      <!-- 1ª fileira -->
-      <div class="card">
-        <img src="banana.jpg" alt="Bananas">
-        <h4>Banana Nanica (kg)</h4><div class="price">R$ 4,89</div><span class="pill destaque">🔥 Oferta do Dia</span>
-      </div>
-      <div class="card">
-        <img src="paofrancesfolhado.jpg" alt="Pão francês">
-        <h4>Pão Francês (kg)</h4><div class="price">R$ 13,90</div><span class="pill destaque">🔥 Oferta do Dia</span>
-      </div>
-      <div class="card">
-        <img src="acem.png" alt="Corte bovino">
-        <h4>Acém Bovino (kg)</h4><div class="price">R$ 26,90</div><span class="pill destaque">🔥 Oferta do Dia</span>
-      </div>
-      <div class="card">
-        <img src="cocacola.webp" alt="Refrigerante">
-        <h4>Refrigerante 2L</h4><div class="price">R$ 7,99</div><span class="pill destaque">🔥 Oferta do Dia</span>
-      </div>
+      <div class="cards">
+        <div class="card">
+          <img src="banana.jpg" alt="Bananas">
+          <h4>Banana Nanica (kg)</h4>
+          <div class="price">R$ 4,89</div>
+          <span class="pill destaque">🔥 Oferta do Dia</span>
+        </div>
+        <div class="card">
+          <img src="paofrancesfolhado.jpg" alt="Pão francês">
+          <h4>Pão Francês (kg)</h4>
+          <div class="price">R$ 13,90</div>
+          <span class="pill destaque">🔥 Oferta do Dia</span>
+        </div>
+        <div class="card">
+          <img src="acem.png" alt="Corte bovino">
+          <h4>Acém Bovino (kg)</h4>
+          <div class="price">R$ 26,90</div>
+          <span class="pill destaque">🔥 Oferta do Dia</span>
+        </div>
+        <div class="card">
+          <img src="cocacola.webp" alt="Refrigerante">
+          <h4>Refrigerante 2L</h4>
+          <div class="price">R$ 7,99</div>
+          <span class="pill destaque">🔥 Oferta do Dia</span>
+        </div>
 
-      <!-- 2ª fileira (dentro do MESMO .cards) -->
-      <div class="card">
-        <img src="leite.jpg" alt="Leite">
-        <h4>Leite Integral 1L</h4><div class="price">R$ 4,49</div><span class="pill destaque">🔥 Oferta do Dia</span>
-      </div>
-      <div class="card">
-        <img src="ArrozCristal-5kg.webp" alt="Arroz">
-        <h4>Arroz Tipo 1 (5kg)</h4><div class="price">R$ 21,90</div><span class="pill destaque">🔥 Oferta do Dia</span>
-      </div>
-      <div class="card">
-        <img src="sabonete.png" alt="Sabonete">
-        <h4>Sabonete Barra</h4><div class="price">R$ 1,99</div><span class="pill destaque">🔥 Oferta do Dia</span>
-      </div>
-      <div class="card">
-        <img src="detergente_ype_500ml_637_1_3ad87948aa8eabe38f077fbdcaf191d9.webp" alt="Detergente">
-        <h4>Detergente 500ml</h4><div class="price">R$ 2,49</div><span class="pill destaque">🔥 Oferta do Dia</span>
+        <div class="card">
+          <img src="leite.jpg" alt="Leite">
+          <h4>Leite Integral 1L</h4>
+          <div class="price">R$ 4,49</div>
+          <span class="pill destaque">🔥 Oferta do Dia</span>
+        </div>
+        <div class="card">
+          <img src="ArrozCristal-5kg.webp" alt="Arroz">
+          <h4>Arroz Tipo 1 (5kg)</h4>
+          <div class="price">R$ 21,90</div>
+          <span class="pill destaque">🔥 Oferta do Dia</span>
+        </div>
+        <div class="card">
+          <img src="sabonete.png" alt="Sabonete">
+          <h4>Sabonete Barra</h4>
+          <div class="price">R$ 1,99</div>
+          <span class="pill destaque">🔥 Oferta do Dia</span>
+        </div>
+        <div class="card">
+          <img src="detergente_ype_500ml.webp" alt="Detergente">
+          <h4>Detergente 500ml</h4>
+          <div class="price">R$ 2,49</div>
+          <span class="pill destaque">🔥 Oferta do Dia</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
   </section>
 
+  <!-- SERVIÇOS -->
   <section id="servicos">
     <div class="wrap">
       <h2 class="section-title">Serviços que facilitam sua vida</h2>
       <div class="cards" style="grid-template-columns:repeat(3,1fr)">
-        <div class="card"><h3>Delivery no bairro</h3><p>Comprou, chegou! Entregas rápidas para a região próxima ao mercado.</p></div>
-        <div class="card"><h3>Cartões & PIX</h3><p>Pague como preferir: débito, crédito, vale-alimentação e PIX.</p></div>
-        <div class="card"><h3>Atendimento Campeão</h3><p>Equipe pronta para ajudar, com a simpatia que é a cara do Serve Lar.</p></div>
+        <div class="card">
+          <h3>Delivery no bairro</h3>
+          <p>Comprou, chegou! Entregas rápidas para a região próxima ao mercado.</p>
+        </div>
+        <div class="card">
+          <h3>Cartões & PIX</h3>
+          <p>Pague como preferir: débito, crédito, vale-alimentação e PIX.</p>
+        </div>
+        <div class="card">
+          <h3>Atendimento Campeão</h3>
+          <p>Equipe pronta para ajudar, com a simpatia que é a cara do Serve Lar.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- CARTÃO TRICARD -->
   <section id="tricard">
     <div class="wrap">
       <h2 class="section-title">Cartão Tricard Serve Lar</h2>
@@ -177,46 +197,45 @@
 
           <div class="cta-group" style="margin-top:14px">
             <a class="btn btn-primary" href="https://triban.co/FYORu" target="_blank" rel="noopener">
-  💳 Quero fazer meu Cartão
-</a>
-
-            <a class="btn btn-ghost" href="tel:+5563999990000">Tirar dúvidas</a>
+              💳 Quero fazer meu Cartão
+            </a>
+            <a class="btn btn-ghost" href="tel:+556333611654">Tirar dúvidas</a>
           </div>
         </div>
 
         <div class="photo-box">
-        <div class="photo-box">
-  <img src="modelocartao.png" alt="Cartão Tricard Serve Lar">
-</div>
+          <img src="modelocartao.png" alt="Cartão Tricard Serve Lar">
         </div>
       </div>
     </div>
   </section>
 
+  <!-- LOCALIZAÇÃO -->
   <section id="localizacao">
-  <div class="wrap">
-    <h2 class="section-title">Onde estamos</h2>
-    <p class="lead">
-      <b>Serve Lar Supermercado</b><br>
-      R. Amâncio de Moraes, 1209 - St. Oeste, Paraíso do Tocantins - TO, 77600-000<br>
-      <b>Telefone:</b> <a href="tel:+556333611654">(63) 3361-1654</a>
-    </p>
+    <div class="wrap">
+      <h2 class="section-title">Onde estamos</h2>
+      <p class="lead">
+        <b>Serve Lar Supermercado</b><br>
+        R. Amâncio de Moraes, 1209 - St. Oeste, Paraíso do Tocantins - TO, 77600-000<br>
+        <b>Telefone:</b> <a href="tel:+556333611654">(63) 3361-1654</a>
+      </p>
 
-    <div class="map">
-      <iframe loading="lazy" allowfullscreen
-        src="https://www.google.com/maps?q=R.+Amâncio+de+Moraes,+1209+-+St.+Oeste,+Paraíso+do+Tocantins+-+TO,+77600-000&output=embed">
-      </iframe>
-      <div class="address">
-        <p>Se preferir, abra diretamente no Google Maps:</p>
-        <a class="gmaps-btn" target="_blank" rel="noopener"
-           href="https://www.google.com/maps?q=R.+Amâncio+de+Moraes,+1209+-+St.+Oeste,+Paraíso+do+Tocantins+-+TO,+77600-000">
-          Abrir no Google Maps
-        </a>
+      <div class="map">
+        <iframe loading="lazy" allowfullscreen
+          src="https://www.google.com/maps?q=R.+Amâncio+de+Moraes,+1209+-+St.+Oeste,+Paraíso+do+Tocantins+-+TO,+77600-000&output=embed">
+        </iframe>
+        <div class="address">
+          <p>Se preferir, abra diretamente no Google Maps:</p>
+          <a class="gmaps-btn" target="_blank" rel="noopener"
+            href="https://www.google.com/maps?q=R.+Amâncio+de+Moraes,+1209+-+St.+Oeste,+Paraíso+do+Tocantins+-+TO,+77600-000">
+            Abrir no Google Maps
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- RODAPÉ -->
   <footer>
     <div class="wrap foot">
       <div class="brand" style="padding:0">
