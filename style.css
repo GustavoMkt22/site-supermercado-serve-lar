@@ -328,3 +328,18 @@ img, iframe, video{ max-width: 100%; height: auto; display: block; }
     white-space: normal;
   }
 }
+/* ===== HERO MAIS LARGO ===== */
+.hero {
+  width: 100vw;                /* ocupa 100% da largura da tela */
+  margin-left: calc(50% - 50vw); /* empurra o bloco para cobrir as bordas */
+  margin-right: calc(50% - 50vw);
+  border-radius: 0;            /* remove cantos arredondados, se houver */
+  overflow-x: clip;            /* evita barra de rolagem lateral */
+}
+
+/* garante que o conteúdo interno tenha respiro, sem cortar */
+.hero .wrap {
+  width: 100%;
+  max-width: 1200px;           /* limite interno opcional */
+  padding-inline: 20px;        /* espaço lateral para o texto não colar */
+}
