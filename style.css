@@ -386,4 +386,12 @@ img, iframe, video{ max-width: 100%; height: auto; display: block; }
     padding: 6px;
   }
 }
+.hero h2 {
+  overflow-wrap: normal;
+  word-break: keep-all;   /* impede quebra dentro da palavra */
+  hyphens: none;          /* desativa hifenização automática */
+  line-height: 1.1;       /* mantém o espaçamento firme */
+  text-align: left;       /* opcional, se quiser centralizado, troque para center */
+}
+
 
