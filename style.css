@@ -328,18 +328,62 @@ img, iframe, video{ max-width: 100%; height: auto; display: block; }
     white-space: normal;
   }
 }
-/* ===== HERO MAIS LARGO ===== */
-.hero {
-  width: 100vw;                /* ocupa 100% da largura da tela */
-  margin-left: calc(50% - 50vw); /* empurra o bloco para cobrir as bordas */
-  margin-right: calc(50% - 50vw);
-  border-radius: 0;            /* remove cantos arredondados, se houver */
-  overflow-x: clip;            /* evita barra de rolagem lateral */
-}
-
 /* garante que o conteúdo interno tenha respiro, sem cortar */
 .hero .wrap {
   width: 100%;
   max-width: 1200px;           /* limite interno opcional */
   padding-inline: 20px;        /* espaço lateral para o texto não colar */
 }
+/* === PATCH RESPONSIVO – Serve Lar (mobile) === */
+
+/* 1) Unificar estratégia do HERO e remover overflow lateral */
+.hero{
+  width: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  /* queremos full-bleed só no pseudo-elemento */
+  overflow-x: hidden;   /* clip horizontal seguro */
+}
+/* mantém o fundo full-bleed pelo ::before, sem estourar a página */
+.hero::before{
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+}
+
+/* 2) Título do HERO: quebra “saudável” (sem cortar no meio) */
+.hero h2{
+  overflow-wrap: break-word;  /* quebra só quando precisa */
+  word-break: normal;
+  hyphens: auto;
+}
+
+/* 3) Marquee: faixa não empurrar a página */
+.strip{
+  overflow: hidden;           /* contém qualquer “excesso” lateral */
+}
+.strip .marquee{
+  overflow-x: auto;           /* rolagem interna suave */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 4) Flex/grid: impedir que filhos forcem largura */
+.row > *, .hero-grid > *, .cards > *{
+  min-width: 0;
+}
+
+/* 5) Cards: padronizar imagem por proporção (evita saltos) */
+.card img{
+  height: auto !important;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+@media (max-width: 720px){
+  .card img{
+    aspect-ratio: auto;
+    object-fit: contain;
+    background: #fff;
+    padding: 6px;
+  }
+}
+
