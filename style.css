@@ -177,3 +177,154 @@ footer{
   #servicos .card h3{ text-align:left; font-size:1.15rem; margin:0 0 8px; line-height:1.25; }
   #servicos .card p{ font-size:.95rem; line-height:1.55; text-align:justify; hyphens:auto; overflow-wrap:anywhere; }
 }
+/* ===== Mobile robustness patch (Android + iOS) ===== */
+
+/* Base segura: sem overflow lateral e texto estável no iOS */
+html, body{
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+/* Container único: controla respiro e largura real */
+.wrap{
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+
+/* Full-bleed de verdade no mobile, sem usar 100vw sozinho */
+@media (max-width: 768px){
+  /* respeita áreas de notch no iPhone */
+  body{
+    padding-left: env(safe-area-inset-left, 0);
+    padding-right: env(safe-area-inset-right, 0);
+  }
+
+  /* container não limita a largura no mobile e usa respiro seguro */
+  .wrap{
+    max-width: none;
+    padding-left: max(16px, env(safe-area-inset-left, 0));
+    padding-right: max(16px, env(safe-area-inset-right, 0));
+  }
+
+  /* seções de fundo que precisam “pegar a tela toda” */
+  .hero,
+  .strip{
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    width: 100vw;              /* ok com viewport-fit=cover */
+    border-radius: 0;
+    overflow-x: clip;          /* impede vazamento de 1px no Safari */
+    position: relative;
+    padding-left: max(16px, env(safe-area-inset-left, 0));
+    padding-right: max(16px, env(safe-area-inset-right, 0));
+  }
+
+  /* grade do hero em uma coluna e textos responsivos */
+  .hero .hero-grid{ grid-template-columns: 1fr; gap: 18px; }
+  .hero h2{ font-size: clamp(1.8rem, 6.6vw, 2.6rem); line-height: 1.08; }
+  .hero p{ font-size: .95rem; max-width: 92%; }
+  .btn{ font-size: .92rem; padding: .72rem .95rem; }
+  .hero-card{ max-width: 92%; margin: 0 auto; padding: 14px; }
+}
+
+/* Cards realmente fluídos e consistentes */
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.card img{
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: .6rem;
+}
+/* Em telas estreitas, prefira mostrar a imagem inteira */
+@media (max-width: 720px){
+  .card img{
+    aspect-ratio: auto;
+    object-fit: contain;
+    background: #fff;
+    padding: 6px;
+  }
+}
+
+/* Menu sanduíche: dropdown contido e sem “empurrar” largura */
+@media (max-width: 720px){
+  nav{ position: relative; }
+  nav ul{
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: min(92vw, 340px);
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 16px 32px rgba(0,0,0,.18);
+    padding: 8px;
+    z-index: 1000;
+    overflow: hidden;
+  }
+  nav ul.open{ display: flex; }
+  nav a{ display:block; padding:12px 14px; color:#111827; }
+  nav a:not(.cta-header){ border-bottom:1px solid #f1f5f9; }
+  nav li:last-child a:not(.cta-header){ border-bottom:none; }
+  nav a.cta-header{ text-align:center; border-radius:12px; margin-top:6px; }
+  .menu-btn{ display:inline-flex; z-index:1001; }
+  body.no-scroll{ overflow: hidden; height: 100vh; }
+}
+
+/* Garantias extra: nada “maior que a tela” */
+img, iframe, video{ max-width: 100%; height: auto; display: block; }
+@media (max-width: 768px){
+  [style*="100vw"], [class*="vw"]{ max-width: 100%; } /* neutraliza 100vw “solto” */
+}
+/* ===== Quebra e hifenização seguras (pt-br) ===== */
+
+/* garanta o idioma no HTML: <html lang="pt-br"> (você já tem) */
+
+/* Títulos do hero: não “estoura” nem corta letra */
+.hero h2{
+  /* tamanho fluido + quebra equilibrada */
+  font-size: clamp(1.9rem, 6.8vw, 3rem);
+  line-height: 1.08;              /* não use 1.00; evita cortar topo/baixo */
+  word-break: normal;             /* nada de break-all */
+  overflow-wrap: anywhere;        /* fallback universal */
+  text-wrap: balance;             /* equilibrado (Chrome/Safari) */
+  hyphens: auto;                  /* Android/iOS hifenizam em pt-br */
+  -webkit-hyphens: auto;          /* iOS/WebKit */
+  -ms-hyphens: auto;              /* legado */
+}
+
+/* Parágrafos */
+.hero p, .card p, #servicos .card p{
+  line-height: 1.5;
+  word-break: normal;
+  overflow-wrap: anywhere;        /* quebra palavras longas (URLs, marcas) */
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Selos/pills: não espremer texto nem cortar emoji */
+.pill, .tag{
+  white-space: normal;            /* pode quebrar se faltar espaço */
+  line-height: 1.1;
+}
+
+/* Em telas estreitas, garanta que nada force “uma linha só” */
+@media (max-width: 720px){
+  .badge, .cta-header, nav a{
+    white-space: normal;
+  }
+}
