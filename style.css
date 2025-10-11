@@ -393,5 +393,58 @@ img, iframe, video{ max-width: 100%; height: auto; display: block; }
   line-height: 1.1;       /* mantém o espaçamento firme */
   text-align: left;       /* opcional, se quiser centralizado, troque para center */
 }
+/* === Serviços: empilhar cards no mobile === */
+/* Se hoje essa lista usa GRID */
+.servicos .cards,
+.services .cards,
+.cards-servicos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 3vw, 20px);
+}
+
+@media (max-width: 768px){
+  .servicos .cards,
+  .services .cards,
+  .cards-servicos {
+    grid-template-columns: 1fr;   /* 1 coluna */
+  }
+  .servicos .card,
+  .services .card,
+  .cards-servicos .card {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Se a sua lista estiver com FLEX, este fallback força coluna no mobile */
+@media (max-width: 768px){
+  .servicos .cards.flex,
+  .services .cards.flex {
+    display: flex;
+    flex-direction: column;       /* um embaixo do outro */
+    gap: clamp(12px, 3vw, 20px);
+  }
+}
+
+/* Tipografia dos cards mais legível no mobile (sem hífen dentro das palavras) */
+.servicos .card p,
+.servicos .card h3,
+.services .card p,
+.services .card h3 {
+  hyphens: none;
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-height: 1.35;
+}
+
+/* Espaçamentos confortáveis no mobile */
+@media (max-width: 768px){
+  .servicos,
+  .services {
+    padding-inline: clamp(12px, 4vw, 24px);
+  }
+}
+
 
 
